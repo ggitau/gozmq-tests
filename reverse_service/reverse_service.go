@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ggitau/commands"
+	cmd "github.com/ggitau/commands"
 	"github.com/ggitau/mdapi"
 	"log"
 	"os"
@@ -11,11 +11,11 @@ type ReverseService struct {
 	Name string
 }
 
-var commands map[string]*Command
+var commands map[string]cmd.Command
 
 func init() {
-	commands = make(map[string]*Command)
-	commands["reverse"] = &ReverseCommand{Name: "reverse"}
+	commands = make(map[string]cmd.Command)
+	commands["reverse"] = &cmd.ReverseCommand{Name: "reverse"}
 }
 func (r *ReverseService) Reverse(s string) string {
 	runes := []rune(s)
